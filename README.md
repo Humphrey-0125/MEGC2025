@@ -12,7 +12,7 @@ Experiments on the **SAMM** and **CAS(ME)\textsuperscript{3}** datasets demonstr
 
 ## System Overview
 
-[![MEGC2025-image](https://github.com/Humphrey-0125/MEGC2025/raw/main/assets/image.png)]
+[![MEGC2025-image](https://github.com/Humphrey-0125/MEGC2025/raw/main/assets/image-20250731221328492.png)](https://github.com/Humphrey-0125/MEGC2025/blob/main/image.png)
 
 ## Setup and Usage
 

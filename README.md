@@ -39,4 +39,8 @@ Experiments on the **SAMM** and **CAS(ME)\textsuperscript{3}** datasets demonstr
 
 ### Results
 
-Final results and ablation study results will be saved in the `result/` folder. The trained model is uploaded to **Google Drive**, and the aligned training dataset is available in `dataset/train_dataset.jsonl`. You can directly use the pre-trained model for testing.
+The final results and ablation study outputs will be saved in the `result/` folder.  
+The trained model is available on  [Baidu Netdisk](https://pan.baidu.com/s/1lTlTtkGHZLNnB2FG2a2xEQ?pwd=5z91).  
+The aligned training dataset can be found at `dataset/train_dataset.jsonl`.  
+You can directly use the pre-trained model for evaluation.
+

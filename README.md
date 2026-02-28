@@ -32,13 +32,13 @@ Experiments on **SAMM** and **CAS(ME)³** show consistent improvements over base
 ### 1) Data Preparation
 
 1. Download and place **SAMM** or **CAS(ME)II** training data into:
-
+```bash
 dataset/
-
+```
 2. Run preprocessing scripts in:
-
+```bash
 data_process/
-
+```
 3. Prepare a local multimodal LLM environment (e.g., **Qwen2.5-VL-7B-Instruct**).
 
 ---

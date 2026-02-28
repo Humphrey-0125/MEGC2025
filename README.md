@@ -1,45 +1,103 @@
-# MEGC2025 Competition Code
+# MEGC2025 Competition Code 🏆
 
-This repository contains the code for our solution to the MEGC2025 competition, where we achieved **third place**.
+Official implementation of our solution for the **MEGC2025 Micro-Expression VQA** competition, where we achieved **3rd place**.
 
-## Abstract
+---
 
-Micro-expression Visual Question Answering (ME-VQA) is a challenging task that combines temporal visual modeling with language-based reasoning to interpret subtle facial dynamics and emotional semantics from micro-expression videos. To address the challenges posed by short duration, weak motion signals, and limited annotations in micro-expression recognition, we propose a **temporal information-enhanced vision-language framework** designed specifically for ME-VQA.
+## 📌 Abstract
 
-Our method, built upon **Qwen2.5-VL-7B-Instruct**, takes both the original video sequence and a static optical flow map (computed between the onset and apex frames) as input. This dual-input setup allows the model to capture both **global temporal context** and **localized motion cues**. We employ **full-parameter supervised fine-tuning** to adapt the model for micro-expression understanding, improving its ability for fine-grained motion perception and high-level semantic reasoning. To enhance the coherence and accuracy of outputs during inference, we design **structured prompt templates**.
+**Micro-Expression Visual Question Answering (ME-VQA)** is a challenging multimodal task that requires both **fine-grained temporal visual modeling** and **language-based reasoning** to interpret subtle facial muscle movements and their emotional semantics. However, micro-expression videos are typically **short**, contain **weak motion signals**, and suffer from **limited annotations**, which makes robust learning difficult.
 
-Experiments on the **SAMM** and **CAS(ME)\textsuperscript{3}** datasets demonstrate that our method consistently outperforms baseline models across multiple metrics, achieving an average performance improvement of **0.19**, which highlights its effectiveness and generalizability in the ME-VQA task. Our solution secured **third place** in the MEGC2025 competition. 
+To address these challenges, we propose a **Temporal Information-Enhanced Vision–Language Framework** tailored for ME-VQA.
 
-## System Overview
+Our method is built on **Qwen2.5-VL-7B-Instruct** and takes two complementary inputs:
 
-[![MEGC2025-image](./image.png)](https://github.com/Humphrey-0125/MEGC2025/blob/main/image.png)
-## Setup and Usage
+- **Raw video sequence** for capturing *global temporal context*
+- **Static optical flow map** (computed between **onset** and **apex** frames) for highlighting *localized motion cues*
 
-### Data Preparation
+We adopt **full-parameter supervised fine-tuning** to adapt the model for micro-expression understanding, improving both **fine-grained motion perception** and **high-level semantic reasoning**. During inference, we further improve response quality by using **structured prompt templates** to encourage coherent and accurate outputs.
 
-1. Place the **SAMM** or **CAS(ME)II** training dataset in the `dataset/` directory.
-2. Run the preprocessing scripts located in `data_process/` to prepare the training dataset.
-3. In addition, ensure you have configured a multimodal large language model (such as **Qwen2.5-VL-7B**) locally.
+Experiments on **SAMM** and **CAS(ME)³** show consistent improvements over baseline methods across multiple metrics, with an average gain of **+0.19**, demonstrating strong effectiveness and generalization for ME-VQA. Our final system secured **3rd place** in the **MEGC2025** competition.
 
-### Training
+---
 
-1. Run `train/set_train_dataset.py` to construct the training dataset.
-2. Execute `train.py` to start training the model.
+## 🧩 System Overview
 
-### Testing
+[![MEGC2025 Overview](./image.png)](./image.png)
 
-1. Run the two files in the `test/` folder to output the test results.
+---
 
-### Ablation Study
+## ⚙️ Setup & Usage
 
-1. Run `ablation/set_test_dataset.py` and `ablation/set_train_dataset.py` to prepare the training and test datasets. Note: You will need to manually split the datasets into training and test sets beforehand.
-2. Train the model by running `train/train.py`, and perform inference using `infer.sh`.
-3. Evaluation metrics can be found in the `ablation/Metrics` folder.
+### 1) Data Preparation
 
-### Results
+1. Download and place **SAMM** or **CAS(ME)II** training data into:
 
-The final results and ablation study outputs will be saved in the `result/` folder.  
-The trained model is available on  [Baidu Netdisk](https://pan.baidu.com/s/1lTlTtkGHZLNnB2FG2a2xEQ?pwd=5z91).  
-The aligned training dataset can be found at `dataset/train_dataset.jsonl`.  
-You can directly use the pre-trained model for evaluation.
+dataset/
+
+2. Run preprocessing scripts in:
+
+data_process/
+
+3. Prepare a local multimodal LLM environment (e.g., **Qwen2.5-VL-7B-Instruct**).
+
+---
+
+### 2) Training
+
+1. Build the training dataset:
+```bash
+python train/set_train_dataset.py
+```
+
+2. Train the model:
+```bash
+python train.py
+```
+### 3) Testing
+
+Run the scripts in:
+```bash
+test/
+python train.py
+```
+to generate predictions and evaluation outputs.
+
+### 4) Ablation Study
+
+Prepare datasets:
+```bash
+python ablation/set_train_dataset.py
+python ablation/set_test_dataset.py
+```
+Note: You need to manually split the dataset into train/test sets beforehand.
+
+Train & infer:
+```bash
+python train/train.py
+bash infer.sh
+```
+Metrics are provided in:
+```bash
+ablation/Metrics/
+```
+
+## 📊 Results & Resources
+
+All final predictions and ablation outputs are saved in:
+```bash
+result/
+```
+Trained model weights:
+ [Baidu Netdisk](https://pan.baidu.com/s/1lTlTtkGHZLNnB2FG2a2xEQ?pwd=5z91)
+
+Aligned training dataset:
+```bash
+dataset/train_dataset.jsonl
+```
+You can directly use the released pretrained model for evaluation.
+
+## 📎 Notes
+
+If you find this repository useful, feel free to ⭐ star it or cite our solution in your work.
 
